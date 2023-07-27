@@ -6,4 +6,6 @@ elseif game.PlaceId == 6938803436 then
     loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5621/20671/AnimeDimensions.lua'))()
 elseif game.PlaceId == 8425128940 then
     loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5621/20672/AnimeWarriors2.lua'))()
+elseif game.PlaceId == 13681795330 then
+    loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5621/20696/PushSimulator.lua'))()
 end
