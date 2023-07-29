@@ -8,4 +8,6 @@ elseif game.PlaceId == 8425128940 then
     loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5621/20672/AnimeWarriors2.lua'))()
 elseif game.PlaceId == 13681795330 then
     loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5621/20696/PushSimulator.lua'))()
+elseif game.PlaceId == 11545598432 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/xShadow1234/HarPy/main/Anime%20Fighting%20Simulator%20X.lua'))()
 end
