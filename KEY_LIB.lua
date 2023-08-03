@@ -331,27 +331,28 @@ local function MakeUi(applicationName, name, info, discordInvite)
    	local KeyLibRun, KeyLibError = pcall(function()
 	   	--loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup.lua"))()
 	    --local KeySystem = _G.KSS.classes.keysystem.new(applicationName)
-		KeyLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup.lua"))()
-		KeySystem = _G.KSS.classes.keysystem.new(applicationName) 
+		KeyLibrary = loadstring(game:HttpGet('https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup_obf.lua'))()
+		KeySystem = KeyLibrary.new(applicationName)
+	   	KeyClass = KeySystem:key()
    	end)
    	if KeyLibError or KeyLibRun == false then
    		Notif.New("Failed to load the Key System: ".. tostring(KeyLibError))
    		CloseGUI()
    	else
+	   	if KeyClass.is_banned then
+	   		Notif.New("You are banned!")
+   			CloseGUI()
+   			return
+	   	end
 	   	
    		local CurrentKeyInput = ""
 	    local SavedKeyPath = applicationName.."_key.txt"
 	    local function iskeyvalid(key_input)
 	        if key_input ~= nil then CurrentKeyInput = key_input end
 	
-			KeyClass = KeySystem:key(CurrentKeyInput)
-            local state
-            if KeyClass.finish and KeyClass:verifyHWID() then
-                state = true
-            else
-                state = false
-            end
-			return state --(KeyClass.finish and KeySystem:verifyKey(CurrentKeyInput))
+			KeyClass = KeySystem:key()
+			if KeyClass.is_banned then return false end
+			return KeySystem:verifyKey(CurrentKeyInput) --(KeyClass.finish and KeySystem:verifyKey(CurrentKeyInput))
 	    end
 		function KeySystemUI.Finished() return iskeyvalid() end
 	
@@ -387,7 +388,11 @@ local function MakeUi(applicationName, name, info, discordInvite)
 	            Notif.New("Key is valid! Loading "..tostring(name).."...", 5)
 	            CloseGUI()
 	        else
-				Notif.New("Invalid/Expired key!", 2)
+				if KeyClass.is_banned then 
+					Notif.New("You are banned!", 5)
+				else 
+					Notif.New("Invalid/Expired key!", 2)
+				end
 	            text_box.Text = ""
 	        end
 	    end)
