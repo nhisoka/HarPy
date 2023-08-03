@@ -331,7 +331,7 @@ local function MakeUi(applicationName, name, info, discordInvite)
    	local KeyLibRun, KeyLibError = pcall(function()
 	   	--loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup.lua"))()
 	    --local KeySystem = _G.KSS.classes.keysystem.new(applicationName)
-		KeyLibrary = loadstring(game:HttpGet('https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup_obf.lua'))()
+		KeyLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup.lua"))()
 		KeySystem = _G.KSS.classes.keysystem.new(applicationName) 
    	end)
    	if KeyLibError or KeyLibRun == false then
