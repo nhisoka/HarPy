@@ -332,18 +332,12 @@ local function MakeUi(applicationName, name, info, discordInvite)
 	   	--loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup.lua"))()
 	    --local KeySystem = _G.KSS.classes.keysystem.new(applicationName)
 		KeyLibrary = loadstring(game:HttpGet('https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup_obf.lua'))()
-		KeySystem = KeyLibrary.new(applicationName)
-	   	KeyClass = KeySystem:key()
+		KeySystem = _G.KSS.classes.keysystem.new(applicationName) 
    	end)
    	if KeyLibError or KeyLibRun == false then
    		Notif.New("Failed to load the Key System: ".. tostring(KeyLibError))
    		CloseGUI()
    	else
-	   	if KeyClass.is_banned then
-	   		Notif.New("You are banned!")
-   			CloseGUI()
-   			return
-	   	end
 	   	
    		local CurrentKeyInput = ""
 	    local SavedKeyPath = applicationName.."_key.txt"
