@@ -350,9 +350,14 @@ local function MakeUi(applicationName, name, info, discordInvite)
 	    local function iskeyvalid(key_input)
 	        if key_input ~= nil then CurrentKeyInput = key_input end
 	
-			KeyClass = KeySystem:key()
-			if KeyClass.is_banned then return false end
-			return KeySystem:verifyKey(CurrentKeyInput) --(KeyClass.finish and KeySystem:verifyKey(CurrentKeyInput))
+			KeyClass = KeySystem:key(CurrentKeyInput)
+            local state
+            if KeyClass.finish and KeyClass:verifyHWID() then
+                state = true
+            else
+                state = false
+            end
+			return state --(KeyClass.finish and KeySystem:verifyKey(CurrentKeyInput))
 	    end
 		function KeySystemUI.Finished() return iskeyvalid() end
 	
@@ -388,11 +393,7 @@ local function MakeUi(applicationName, name, info, discordInvite)
 	            Notif.New("Key is valid! Loading "..tostring(name).."...", 5)
 	            CloseGUI()
 	        else
-				if KeyClass.is_banned then 
-					Notif.New("You are banned!", 5)
-				else 
-					Notif.New("Invalid/Expired key!", 2)
-				end
+				Notif.New("Invalid/Expired key!", 2)
 	            text_box.Text = ""
 	        end
 	    end)
