@@ -10,4 +10,6 @@ elseif game.PlaceId == 13681795330 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/xShadow1234/HarPy/main/Pushing%20Simulator.lua'))()
 elseif game.PlaceId == 11545598432 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/xShadow1234/HarPy/main/Anime%20Fighting%20Simulator%20X.lua'))()
+elseif game.PlaceId == 13335973664 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Killa5676/Killa-s-Scripts/main/Energy%20Simulator'))()
 end
