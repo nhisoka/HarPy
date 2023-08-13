@@ -12,4 +12,6 @@ elseif game.PlaceId == 11545598432 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/xShadow1234/HarPy/main/Anime%20Fighting%20Simulator%20X.lua'))()
 elseif game.PlaceId == 13335973664 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Killa5676/Killa-s-Scripts/main/Energy%20Simulator'))()
+elseif game.PlaceId == 13028445510 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/xShadow1234/HarPy/main/Shoot%20Wall%20Simulator.lua'))()
 end
