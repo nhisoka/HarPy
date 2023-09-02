@@ -18,4 +18,6 @@ elseif game.PlaceId == 6299805723 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/xShadow1234/HarPy/main/Anime%20Fighters%20Dupe.lua'))()
 elseif game.PlaceId == 11860394049 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Killa5676/Killa-s-Scripts/main/lumber%20legends"))()
+elseif game.PlaceId == 14361173627 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Killa5676/Killa-s-Scripts/main/Boxing%20clicker%20sim"))()
 end
